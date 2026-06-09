@@ -1,88 +1,71 @@
-# ABC Mills Pte Ltd - Responsive Static Website
+# ABC Mills — Responsive Static Website
 
-## 🏗️ Technology Stack
+This repository contains a small responsive static website for ABC Mills showcasing products, gallery, FAQs, testimonials and a contact form. It's built with semantic HTML, modern CSS and vanilla JavaScript — no build step required.
 
-| Technology | Purpose |
-|-----------|---------|
-| HTML5 | Semantic structure, SEO |
-| CSS3 | Custom properties, Grid, Flexbox, animations |
-| Vanilla JavaScript | Interactivity, slider, form validation, scroll animations |
-| Google Fonts | Playfair Display + DM Sans |
+## 🏗️ Technology
+
+- HTML5 (semantic markup)
+- CSS3 (custom properties, Grid, Flexbox, responsive rules)
+- Vanilla JavaScript (interactive sliders, FAQ accordion, form validation)
+- Google Fonts (Playfair Display, DM Sans)
 
 ---
 
-## 📁 File Structure
+## 📁 Project Structure
 
 ```
-abc_mills_website/
-├── index.html          # Home page
-├── about.html          # About Us page
-├── products.html       # Products & Services page
-├── gallery.html        # Gallery page
-├── others.html         # Others (FAQs, Testimonials, Certifications)
-├── contact.html        # Contact Us page
-├── dummy-shop.html     # Mock e-commerce page
+ABC-Mills-website/
+├── index.html
+├── about.html
+├── products.html
+├── gallery.html
+├── others.html
+├── contact.html
+├── dummy-shop.html
 ├── css/
-│   └── style.css      
-├── js/    
-│   └── main.js      
+│   └── style.css
+├── js/
+│   └── main.js
 └── img/
-    └── banner
-    └── products 
-    └── gallery
-
+    ├── banner/
+    ├── gallery/
+    └── products/
 ```
 
 ---
 
-## 🎨 Design Highlights
+## ✨ Features
 
-### Color Palette
-- **Primary**: #c62828 (Spice Red)
-- **Accent**: #f9a825 (Saffron Gold)
-- **Background**: #faf8f5 (Warm Cream)
-- **Text**: #1a1a1a (Dark)
-
-### Key Features
-- **Hero Banner Slider** - Auto-rotating with dot navigation (3 slides)
-- **Scroll Animations** - IntersectionObserver for fade-in effects
-- **Mobile Hamburger Menu** - Accessible with ARIA attributes
-- **FAQ Accordion** - Toggle functionality with keyboard support
-- **Contact Form** - Client-side validation with error/success states
-- **Product Cards** - Hover effects with gradient backgrounds + emoji icons
-- **Gallery Grid** - Responsive masonry-style layout with hover zoom
+- Responsive hero banner slider with autoplay and dots
+- Testimonial slider with controls and autoplay
+- Gallery with Fancybox integration (lightbox)
+- FAQ accordion with accessible keyboard support
+- Contact form with client-side validation and messages
+- Centralized CSS (`css/style.css`) and JS (`js/main.js`)
 
 ---
 
-## ♿ Accessibility Features
+## ♿ Accessibility
 
-- Semantic HTML5 elements (`<nav>`, `<main>`, `<section>`, `<footer>`)
-- ARIA labels and roles throughout
-- Keyboard-navigable FAQ accordion
-- Form validation with clear error messages
-- Focus states on interactive elements
-- Alt text for all images
-- `aria-expanded` for toggle buttons
-- `aria-live` for dynamic content updates
+- Semantic landmarks (`<nav>`, `<main>`, `<section>`, `<footer>`)
+- ARIA attributes for controls and live regions
+- Keyboard focus styles and focus-visible outlines
+- Meaningful `alt` text for images and labels for form fields
 
 ---
 
 ## 📱 Responsive Breakpoints
 
-| Breakpoint | Target |
-|-----------|--------|
-| > 900px | Desktop - Multi-column layouts |
-| 640px - 900px | Tablet - 2-column grids |
-| < 640px | Mobile - Single column, hamburger menu |
-| < 400px | Small mobile - Simplified grids |
+- Desktop: > 900px — multi-column layouts
+- Tablet: 640px–900px — two-column grids
+- Mobile: < 640px — single-column layout, hamburger menu
 
 ---
 
-## 🚀 How to Run
+## 🚀 Run locally
 
-1. Extract the zip file
-2. Open any `.html` file in a browser
-3. Navigate between pages using the navbar
-4. Test responsiveness using browser DevTools
+1. Clone or extract the repository.
+2. Open any page (for example `index.html`) in a browser — no server required.
+3. Use browser DevTools to test responsive layouts.
 
 ---

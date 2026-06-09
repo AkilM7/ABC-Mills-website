@@ -11,37 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* Contact info clickable links */
-    .contact-link {
-      color: var(--text-muted);
-      transition: color 0.2s;
-    }
-    .contact-link:hover {
-      color: var(--primary);
-    }
-    /* Contact info icons */
-    .ci-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-    }
-    .ci-icon svg {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-    /* Social buttons with icons */
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .social-btn svg {
-      width: 1rem;
-      height: 1rem;
-    }
-  </style>
 </head>
 <body data-page="contact">
   <nav class="navbar" id="navbar" role="navigation" aria-label="Primary navigation">
@@ -55,7 +24,6 @@
         </span>
         <div>
           <span class="logo-name">ABC Mills</span>
-          <span class="logo-tagline">Pte Ltd</span>
         </div>
       </a>
       <button class="hamburger" id="hamburger" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">
@@ -148,13 +116,12 @@
             </span>
             <div>
               <span class="logo-name">ABC Mills</span>
-              <span class="logo-tagline">Pte Ltd</span>
             </div>
           </div>
           <p>Authentic South Indian masalas made with care, quality and tradition.</p>
         </div>
         <div class="footer-nav">
-          <h4>Explore</h4>
+          <h4>Quick Links</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
@@ -162,12 +129,12 @@
             <li><a href="gallery.html">Gallery</a></li>
           </ul>
         </div>
-        <div class="footer-nav">
-          <h4>More</h4>
-          <ul>
-            <li><a href="others.html">Others</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="dummy-shop.html">Shop</a></li>
+        <div class="footer-social" aria-label="Follow us">
+          <h4>Follow Us</h4>
+          <ul class="social-list">
+            <li><a href="#" aria-label="Instagram" class="social-link social-instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm4.75-.9a1.05 1.05 0 1 1-2.1 0 1.05 1.05 0 0 1 2.1 0z"/></svg> Instagram</a></li>
+            <li><a href="#" aria-label="Facebook" class="social-link social-facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.2V12h2.2V9.8c0-2.2 1.3-3.4 3.3-3.4.95 0 1.95.17 1.95.17v2.15h-1.1c-1.08 0-1.42.67-1.42 1.36V12h2.42l-.39 2.9h-2.03v7A10 10 0 0 0 22 12z"/></svg> Facebook</a></li>
+            <li><a href="#" aria-label="YouTube" class="social-link social-youtube"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.12C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.58A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.12C4.5 20.5 12 20.5 12 20.5s7.5 0 9.4-.58a3 3 0 0 0 2.1-2.12A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.8 15.2V8.8l6.2 3.2-6.2 3.2z"/></svg> YouTube</a></li>
           </ul>
         </div>
         <div class="footer-contact">

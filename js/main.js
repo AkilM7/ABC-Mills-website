@@ -170,178 +170,308 @@ function initHeroBannerSlider() {
   showSlide(0);
 }
 
+/* ===== STATS ANIMATION (moved from index.html) ===== */
+function initStatsAnimation() {
+  const statNums = document.querySelectorAll('.stat-num[data-target]');
+  if (!statNums.length) return;
+
+  function animateCount(el) {
+    const target = parseInt(el.dataset.target, 10) || 0;
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800; // ms
+    const startTime = performance.now();
+
+    function update(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * target);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  const obs = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  statNums.forEach(el => obs.observe(el));
+}
+
+/* ===== GALLERY / FANCYBOX INIT (moved from gallery.html) ===== */
+function initGalleryFancybox() {
+  if (!window.jQuery || !jQuery.fn || typeof jQuery.fn.fancybox !== 'function') return;
+
+  $(document).ready(function() {
+    $('[data-fancybox="gallery"]').fancybox({
+      loop: true,
+      animationEffect: 'zoom',
+      transitionEffect: 'fade',
+      thumbs: {
+        autoStart: true,
+        hideOnClose: false,
+        axis: 'y'
+      },
+      buttons: [
+        'zoom',
+        'slideShow',
+        'thumbs',
+        'close'
+      ],
+      beforeShow: function(instance, current) {
+        if (instance && instance.Thumbs) instance.Thumbs.update();
+      }
+    });
+  });
+}
+
 /* ===== TESTIMONIAL SLIDER ===== */
 function initTestimonialSlider() {
   const wrapper = document.querySelector('.testimonial-slider-wrapper');
   const slider = document.getElementById('testimonialSlider');
-  const prev = document.getElementById('sliderPrev');
-  const next = document.getElementById('sliderNext');
+  const prevBtn = document.getElementById('sliderPrev');
+  const nextBtn = document.getElementById('sliderNext');
   const dotsContainer = document.getElementById('sliderDots');
+
   if (!slider || !wrapper) return;
 
-  const getSlides = () => Array.from(slider.querySelectorAll('.testimonial-slide'));
+  const slides = Array.from(slider.querySelectorAll('.testimonial-slide'));
+  const totalSlides = slides.length;
+  if (totalSlides === 0) return;
 
-  const getSlidesPerView = () => {
+  // Respect prefers-reduced-motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const transitionDuration = prefersReducedMotion ? 0 : 450;
+
+  // State
+  let currentIndex = 0;
+  let slidesPerView = getSlidesPerView();
+  let isAnimating = false;
+  let autoplayInterval = null;
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  function getSlidesPerView() {
     const w = window.innerWidth;
     if (w <= 600) return 1;
     if (w <= 900) return 2;
     return 3;
-  };
+  }
 
-  let slidesPerView = getSlidesPerView();
-  // logical current page index for dots
-  let currentPage = 0;
-  let autoplayInterval = null;
+  function getMaxIndex() {
+    return Math.max(0, totalSlides - slidesPerView);
+  }
 
-  // Set widths for slides so translation by wrapper width works predictably
-  const setSizes = () => {
+  // Set slide widths dynamically
+  function setSlideSizes() {
     slidesPerView = getSlidesPerView();
-    const pageWidth = wrapper.clientWidth;
-    const style = window.getComputedStyle(slider);
-    const gap = parseFloat(style.gap) || 0;
-    const currentSlides = getSlides();
-    // Calculate slide width so that slidesPerView items plus gaps exactly fill wrapper
-    const slideWidth = (pageWidth - gap * (slidesPerView - 1)) / slidesPerView;
-    currentSlides.forEach(slide => {
-      slide.style.minWidth = `${slideWidth}px`;
+    const wrapperWidth = wrapper.clientWidth;
+    const gap = parseFloat(getComputedStyle(slider).gap) || 0;
+    const slideWidth = (wrapperWidth - gap * (slidesPerView - 1)) / slidesPerView;
+
+    slides.forEach(slide => {
+      slide.style.flex = `0 0 ${slideWidth}px`;
       slide.style.maxWidth = `${slideWidth}px`;
     });
-    // total width = slideWidth * count + gap * (count - 1)
-    const totalWidth = slideWidth * currentSlides.length + gap * Math.max(0, currentSlides.length - 1);
-    slider.style.width = `${Math.ceil(totalWidth)}px`;
-  };
 
-  const renderDots = () => {
+    return slideWidth;
+  }
+
+  // Build dots based on how many "pages" of slides exist
+  function renderDots() {
     if (!dotsContainer) return;
-    const pages = Math.max(1, Math.ceil(getSlides().length / slidesPerView));
     dotsContainer.innerHTML = '';
-    for (let i = 0; i < pages; i++) {
+
+    const maxIndex = getMaxIndex();
+    const dotCount = maxIndex + 1; // one dot per possible starting position
+
+    for (let i = 0; i < dotCount; i++) {
       const btn = document.createElement('button');
-      btn.className = 'slider-dot' + (i === 0 ? ' active' : '');
-      btn.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
-      btn.dataset.index = i;
+      btn.className = 'slider-dot' + (i === currentIndex ? ' active' : '');
+      btn.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
+      btn.setAttribute('type', 'button');
       btn.addEventListener('click', () => {
-        // compute shortest direction and step accordingly
-        const pagesNow = Math.max(1, Math.ceil(getSlides().length / slidesPerView));
-        const target = i;
-        let diff = (target - currentPage + pagesNow) % pagesNow;
-        if (diff === 0) return;
-        if (diff <= pagesNow / 2) {
-          const run = () => { if (diff-- > 0) nextPage(run); };
-          run();
-        } else {
-          diff = pagesNow - diff;
-          const run = () => { if (diff-- > 0) prevPage(run); };
-          run();
-        }
+        if (isAnimating || i === currentIndex) return;
+        goToSlide(i);
         restartAutoplay();
       });
       dotsContainer.appendChild(btn);
     }
-  };
+  }
 
-  const update = () => {
-    slidesPerView = getSlidesPerView();
-    // keep transform neutral since we rearrange DOM on animation end
-    slider.style.transition = 'none';
-    slider.style.transform = `translate3d(0px,0,0)`;
-    if (dotsContainer) {
-      const dots = dotsContainer.querySelectorAll('.slider-dot');
-      dots.forEach((d, i) => d.classList.toggle('active', i === currentPage));
-    }
-    requestAnimationFrame(() => { slider.style.transition = ''; });
-  };
+  function updateDots() {
+    if (!dotsContainer) return;
+    const dots = dotsContainer.querySelectorAll('.slider-dot');
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  }
 
-  // shift helpers
-  const animateShift = (direction = 'next', cb) => {
-    const pageW = wrapper.clientWidth;
-    const distance = direction === 'next' ? -pageW : pageW;
-    // animate
-    slider.style.transition = 'transform 0.45s cubic-bezier(.2,.9,.2,1)';
-    slider.style.transform = `translate3d(${distance}px,0,0)`;
-    const onEnd = (e) => {
-      if (e && e.target !== slider) return;
-      slider.removeEventListener('transitionend', onEnd);
-      const n = slidesPerView;
-      if (direction === 'next') {
-        for (let i = 0; i < n; i++) {
-          const first = slider.firstElementChild;
-          if (!first) break;
-          slider.appendChild(first);
-        }
-      } else {
-        for (let i = 0; i < n; i++) {
-          const last = slider.lastElementChild;
-          if (!last) break;
-          slider.insertBefore(last, slider.firstElementChild);
-        }
-      }
-      // reset transform without animation
+  // Core move function: translate to show slides starting at targetIndex
+  function goToSlide(targetIndex, animate = true) {
+    if (isAnimating && animate) return;
+    const maxIndex = getMaxIndex();
+    targetIndex = Math.max(0, Math.min(targetIndex, maxIndex));
+
+    if (targetIndex === currentIndex && animate) return;
+
+    const slideWidth = setSlideSizes();
+    const gap = parseFloat(getComputedStyle(slider).gap) || 0;
+    const translateX = -(targetIndex * (slideWidth + gap));
+
+    if (animate && !prefersReducedMotion) {
+      isAnimating = true;
+      slider.style.transition = `transform ${transitionDuration}ms cubic-bezier(.2,.9,.2,1)`;
+    } else {
       slider.style.transition = 'none';
-      slider.style.transform = `translate3d(0px,0,0)`;
-      slider.getBoundingClientRect();
-      requestAnimationFrame(() => { slider.style.transition = ''; });
+    }
 
-      const pagesNow = Math.max(1, Math.ceil(getSlides().length / slidesPerView));
-      if (direction === 'next') currentPage = (currentPage + 1) % pagesNow;
-      else currentPage = (currentPage - 1 + pagesNow) % pagesNow;
+    slider.style.transform = `translate3d(${translateX}px, 0, 0)`;
+    currentIndex = targetIndex;
+    updateDots();
 
-      if (dotsContainer) {
-        const dots = dotsContainer.querySelectorAll('.slider-dot');
-        dots.forEach((d, i) => d.classList.toggle('active', i === currentPage));
-      }
+    if (animate && !prefersReducedMotion) {
+      const onEnd = (e) => {
+        if (e.target !== slider) return;
+        slider.removeEventListener('transitionend', onEnd);
+        isAnimating = false;
+      };
+      slider.addEventListener('transitionend', onEnd);
+      // Fallback in case transitionend doesn't fire
+      setTimeout(() => { isAnimating = false; }, transitionDuration + 50);
+    } else {
+      isAnimating = false;
+    }
+  }
 
-      if (typeof cb === 'function') cb();
-    };
-    slider.addEventListener('transitionend', onEnd);
-  };
+  function nextSlide() {
+    const maxIndex = getMaxIndex();
+    if (currentIndex >= maxIndex) {
+      goToSlide(0); // Loop back to start
+    } else {
+      goToSlide(currentIndex + 1);
+    }
+  }
 
-  const nextPage = (cb) => { animateShift('next', cb); };
-  const prevPage = (cb) => { animateShift('prev', cb); };
+  function prevSlide() {
+    const maxIndex = getMaxIndex();
+    if (currentIndex <= 0) {
+      goToSlide(maxIndex); // Loop to end
+    } else {
+      goToSlide(currentIndex - 1);
+    }
+  }
 
-  const startAutoplay = (delay = 5000) => {
+  // Autoplay
+  function startAutoplay(delay = 5000) {
     stopAutoplay();
-    autoplayInterval = setInterval(() => {
-      nextPage();
-    }, delay);
-  };
-  const stopAutoplay = () => {
+    autoplayInterval = setInterval(nextSlide, delay);
+  }
+
+  function stopAutoplay() {
     if (autoplayInterval) {
       clearInterval(autoplayInterval);
       autoplayInterval = null;
     }
-  };
-  const restartAutoplay = () => { stopAutoplay(); startAutoplay(5000); };
+  }
 
-  // Initial sizing and render
-  setSizes();
-  renderDots();
-  update();
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay(5000);
+  }
 
-  // Handlers
-  if (next) next.addEventListener('click', () => { nextPage(); restartAutoplay(); });
-  if (prev) prev.addEventListener('click', () => { prevPage(); restartAutoplay(); });
+  // Touch / Swipe support
+  wrapper.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopAutoplay();
+  }, { passive: true });
 
-  // Keep autoplay running continuously (no pause on hover)
-  // (Interactions still restart autoplay to keep loop behaviour predictable)
+  wrapper.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+    restartAutoplay();
+  }, { passive: true });
 
-  // Recompute on resize
+  function handleSwipe() {
+    const threshold = 50;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  }
+
+  // Keyboard navigation
+  wrapper.setAttribute('tabindex', '0');
+  wrapper.setAttribute('role', 'region');
+  wrapper.setAttribute('aria-label', 'Testimonials');
+  wrapper.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      prevSlide();
+      restartAutoplay();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      nextSlide();
+      restartAutoplay();
+    }
+  });
+
+  // Pause autoplay on hover/focus for accessibility
+  wrapper.addEventListener('mouseenter', stopAutoplay);
+  // Wrap startAutoplay so the event object is not passed as the delay arg
+  wrapper.addEventListener('mouseleave', () => startAutoplay(5000));
+  wrapper.addEventListener('focusin', stopAutoplay);
+  wrapper.addEventListener('focusout', () => startAutoplay(5000));
+
+  // Button handlers
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      restartAutoplay();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      restartAutoplay();
+    });
+  }
+
+  // Resize handler with debounce
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      const firstVisibleIndex = currentPage * slidesPerView;
-      setSizes();
+      const oldSPV = slidesPerView;
       const newSPV = getSlidesPerView();
-      slidesPerView = newSPV;
-      const newPage = Math.floor(firstVisibleIndex / slidesPerView);
-      currentPage = Math.max(0, newPage);
-      renderDots();
-      update();
-    }, 120);
+      if (oldSPV !== newSPV) {
+        slidesPerView = newSPV;
+        // Clamp current index to new valid range
+        const maxIndex = getMaxIndex();
+        currentIndex = Math.min(currentIndex, maxIndex);
+        renderDots();
+      }
+      setSlideSizes();
+      goToSlide(currentIndex, false);
+    }, 150);
   });
 
-  // start autoplay
+  // Initialize
+  setSlideSizes();
+  renderDots();
+  goToSlide(0, false);
   startAutoplay(5000);
 }
 
@@ -351,6 +481,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.animate-target').forEach(el => observer.observe(el));
   initHeroBannerSlider();
   initTestimonialSlider();
+  // Moved from inline page scripts
+  initStatsAnimation();
+  initGalleryFancybox();
 
   // Set initial aria-expanded for FAQ buttons
   document.querySelectorAll('.faq-question').forEach(btn => {
