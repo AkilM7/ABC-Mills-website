@@ -86,12 +86,3 @@ abc_mills_website/
 4. Test responsiveness using browser DevTools
 
 ---
-
-## 📧 Contact
-
-**ABC Mills Pte Ltd**
-- Address: 123 Spice Lane, Singapore 789456
-- Email: hello@abcmills.sg
-- Phone: +65 9123 4567
-
----
