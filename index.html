@@ -3,17 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ABC Mills Pte Ltd makes authentic South Indian masala powders with fresh ingredients and traditional grinding methods." />
-  <meta name="keywords" content="ABC Mills, masala powder, South Indian spices, chilli powder, turmeric, garam masala" />
+
+  <meta name="description" content="ABC Mills Pte Ltd – Authentic South Indian masala powders stone-ground from farm-fresh spices. Shop chilli powder, turmeric, garam masala and 14+ signature blends. Trusted by 50,000+ homes." />
+  <meta name="keywords" content="ABC Mills, masala powder, South Indian spices, chilli powder, turmeric powder, garam masala, stone-ground spices, India spices, authentic masala" />
   <meta name="author" content="ABC Mills Pte Ltd" />
-  <title>ABC Mills Pte Ltd – Home</title>
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://abc-mills.netlify.app//index.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://abc-mills.netlify.app//" />
+  <meta property="og:title" content="ABC Mills Pte Ltd – Authentic South Indian Masala Powders" />
+  <meta property="og:description" content="Stone-ground masala powders crafted with care from farm-fresh South Indian spices. 25+ years of tradition, trusted by 50,000+ homes." />
+  <meta property="og:image" content="https://abc-mills.netlify.app//img/og-image.jpg" />
+  <meta property="og:site_name" content="ABC Mills Pte Ltd" />
+  <meta property="og:locale" content="en_IND" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ABC Mills Pte Ltd – Authentic South Indian Masala Powders" />
+  <meta name="twitter:description" content="Stone-ground masala powders from farm-fresh South Indian spices. Trusted by 50,000+ homes." />
+  <meta name="twitter:image" content="https://abc-mills.netlify.app//img/og-image.jpg" />
+
+  <title>ABC Mills Pte Ltd – Authentic South Indian Masala Powders | Since 1999</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/style.css" />
+
   <style>
+    .hero-banner-section {
+      padding-top: calc(var(--nav-height) + 1.25rem); /* space below fixed nav */
+      padding-bottom: 0;
+    }
+    @media (max-width: 640px) {
+      .hero-banner-section {
+        padding-top: calc(var(--nav-height) + 1rem);
+      }
+    }
+
+    .btn-buy {
+      background: linear-gradient(135deg, #f9a825, #e65100);
+      color: #fff !important;
+      border: none;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(230, 81, 0, 0.35);
+      transition: all 0.25s ease;
+    }
+    .btn-buy:hover {
+      background: linear-gradient(135deg, #ffb300, #bf360c);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(230, 81, 0, 0.5);
+    }
+
+    .stat-num {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      transition: opacity 0.3s;
+    }
+
     .hero-badge {
       display: inline-block;
       background: rgba(255,255,255,0.15);
@@ -48,80 +100,79 @@
       <button class="hamburger" id="hamburger" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
-        <li><a href="about.html" class="nav-link" data-page="about">About Us</a></li>
-        <li><a href="products.html" class="nav-link" data-page="products">Products</a></li>
-        <li><a href="gallery.html" class="nav-link" data-page="gallery">Gallery</a></li>
-        <li><a href="others.html" class="nav-link" data-page="others">Others</a></li>
-        <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+      <ul class="nav-links" id="navLinks" role="menubar">
+        <li role="none"><a href="index.html" class="nav-link active" data-page="home" role="menuitem">Home</a></li>
+        <li role="none"><a href="about.html" class="nav-link" data-page="about" role="menuitem">About Us</a></li>
+        <li role="none"><a href="products.html" class="nav-link" data-page="products" role="menuitem">Products</a></li>
+        <li role="none"><a href="gallery.html" class="nav-link" data-page="gallery" role="menuitem">Gallery</a></li>
+        <li role="none"><a href="others.html" class="nav-link" data-page="others" role="menuitem">Others</a></li>
+        <li role="none"><a href="contact.html" class="nav-link" data-page="contact" role="menuitem">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <main>
-    <!-- ===== HERO BANNER SECTION ===== -->
-    <section class="section" style="padding-bottom: 0;">
+  <main id="main-content">
+
+    <section class="section hero-banner-section" aria-label="Featured promotions">
       <div class="container">
-        <div class="hero-banner">
-          <div class="hero-banner-slide active" style="background-image: url('img/banner/banner1.jpg');">
+        <div class="hero-banner" role="region" aria-label="Image slideshow">
+          <div class="hero-banner-slide active" style="background-image: url('img/banner/banner1.jpg');" aria-hidden="false">
             <div class="hero-banner-content">
               <span class="hero-badge">Authentic South Indian Spices</span>
               <h1>Pure Flavour, <em>Traditional Craft</em></h1>
               <p>Stone-ground masala powders crafted with care from farm-fresh ingredients.</p>
-              <a href="dummy-shop.html" class="btn btn-primary btn-lg">Shop Now →</a>
+              <a href="dummy-shop.html" class="btn btn-primary btn-lg" aria-label="Shop ABC Mills masala powders">Shop Now →</a>
             </div>
           </div>
-          <div class="hero-banner-slide" style="background-image: url('img/banner/banner2.jpg');">
+          <div class="hero-banner-slide" style="background-image: url('img/banner/banner2.jpg');" aria-hidden="true">
             <div class="hero-banner-content">
               <span class="hero-badge">Premium Quality</span>
               <h1>Fresh From <em>The Farm</em></h1>
               <p>Sourced directly from trusted South Indian spice farms for genuine taste.</p>
-              <a href="products.html" class="btn btn-primary btn-lg">Explore Products →</a>
+              <a href="products.html" class="btn btn-primary btn-lg" aria-label="Explore ABC Mills products">Explore Products →</a>
             </div>
           </div>
-          <div class="hero-banner-slide" style="background-image: url('img/banner/banner3.jpg');">
+          <div class="hero-banner-slide" style="background-image: url('img/banner/banner3.jpg');" aria-hidden="true">
             <div class="hero-banner-content">
               <span class="hero-badge">25+ Years of Excellence</span>
               <h1>Trusted by <em>50,000+ Homes</em></h1>
               <p>Bringing the warmth of South Indian cuisine to kitchens worldwide.</p>
-              <a href="about.html" class="btn btn-primary btn-lg">Our Story →</a>
+              <a href="about.html" class="btn btn-primary btn-lg" aria-label="Learn about ABC Mills story">Our Story →</a>
             </div>
           </div>
-          <div class="hero-banner-dots">
-            <button class="hero-banner-dot active" aria-label="Go to slide 1"></button>
-            <button class="hero-banner-dot" aria-label="Go to slide 2"></button>
-            <button class="hero-banner-dot" aria-label="Go to slide 3"></button>
+          <div class="hero-banner-dots" role="tablist" aria-label="Slideshow controls">
+            <button class="hero-banner-dot active" aria-label="Go to slide 1" role="tab" aria-selected="true"></button>
+            <button class="hero-banner-dot" aria-label="Go to slide 2" role="tab" aria-selected="false"></button>
+            <button class="hero-banner-dot" aria-label="Go to slide 3" role="tab" aria-selected="false"></button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== HIGHLIGHTS SECTION ===== -->
-    <section class="section highlights-section">
+    <section class="section highlights-section" aria-labelledby="highlights-heading">
       <div class="container">
         <div class="section-header">
           <span class="section-tag">Why ABC Mills</span>
-          <h2>Pure flavour crafted with <em>care</em></h2>
+          <h2 id="highlights-heading">Pure flavour crafted with <em>care</em></h2>
         </div>
         <div class="highlights-grid">
           <div class="highlight-card animate-target">
-            <span class="hcard-icon">🌾</span>
+            <span class="hcard-icon" aria-hidden="true">🌾</span>
             <h3>Farm-to-Pack</h3>
             <p>Whole spices sourced from trusted South India farms for genuine taste and quality.</p>
           </div>
           <div class="highlight-card animate-target">
-            <span class="hcard-icon">⚗️</span>
+            <span class="hcard-icon" aria-hidden="true">⚗️</span>
             <h3>Stone-Ground</h3>
             <p>Traditional grinding retains aroma, colour and flavour in every batch.</p>
           </div>
           <div class="highlight-card animate-target">
-            <span class="hcard-icon">✅</span>
+            <span class="hcard-icon" aria-hidden="true">✅</span>
             <h3>Quality Assured</h3>
             <p>ISO-certified production with strict hygiene standards across every stage.</p>
           </div>
           <div class="highlight-card animate-target">
-            <span class="hcard-icon">📦</span>
+            <span class="hcard-icon" aria-hidden="true">📦</span>
             <h3>Fresh Packaging</h3>
             <p>Airtight, nitrogen-flushed packs lock in freshness until it reaches your shelf.</p>
           </div>
@@ -129,77 +180,85 @@
       </div>
     </section>
 
-    <!-- ===== BESTSELLERS SECTION ===== -->
-    <section class="section bestsellers-section">
+    <section class="section bestsellers-section" aria-labelledby="bestsellers-heading">
       <div class="container">
         <div class="section-header">
           <span class="section-tag">Bestsellers</span>
-          <h2>Most loved <em>masalas</em></h2>
+          <h2 id="bestsellers-heading">Most loved <em>masalas</em></h2>
         </div>
-        <div class="products-grid">
-          <div class="product-card animate-target">
+        <div class="products-grid" role="list">
+          <article class="product-card animate-target" role="listitem" itemscope itemtype="https://schema.org/Product">
             <div class="product-img">
-              <img src="img/products/chilli-powder.jfif" alt="Chilli Powder" loading="lazy" />
+              <img src="img/products/chilli-powder.jfif" alt="ABC Mills Chilli Powder – bright red, stone-ground for bold heat" loading="lazy" itemprop="image" />
             </div>
             <div class="product-info">
-              <h4>Chilli Powder</h4>
-              <p>Bright heat and deep colour to lift curries and marinades.</p>
-              <a href="dummy-shop.html" class="btn btn-sm">Buy Now</a>
+              <h4 itemprop="name">Chilli Powder</h4>
+              <p itemprop="description">Bright heat and deep colour to lift curries and marinades.</p>
+              <a href="dummy-shop.html" class="btn btn-sm btn-buy" aria-label="Buy Chilli Powder from ABC Mills">Buy Now</a>
             </div>
-          </div>
-          <div class="product-card animate-target">
+          </article>
+          <article class="product-card animate-target" role="listitem" itemscope itemtype="https://schema.org/Product">
             <div class="product-img">
-              <img src="img/products/turmeric-powder.jfif" alt="Turmeric Powder" loading="lazy" />
+              <img src="img/products/turmeric-powder.jfif" alt="ABC Mills Turmeric Powder – golden, farm-fresh, stone-ground" loading="lazy" itemprop="image" />
             </div>
             <div class="product-info">
-              <h4>Turmeric Powder</h4>
-              <p>Earthy aroma and natural colour for wholesome South Indian dishes.</p>
-              <a href="dummy-shop.html" class="btn btn-sm">Buy Now</a>
+              <h4 itemprop="name">Turmeric Powder</h4>
+              <p itemprop="description">Earthy aroma and natural colour for wholesome South Indian dishes.</p>
+              <a href="dummy-shop.html" class="btn btn-sm btn-buy" aria-label="Buy Turmeric Powder from ABC Mills">Buy Now</a>
             </div>
-          </div>
-          <div class="product-card animate-target">
+          </article>
+          <article class="product-card animate-target" role="listitem" itemscope itemtype="https://schema.org/Product">
             <div class="product-img">
-              <img src="img/products/garam-masala.jfif" alt="Garam Masala" loading="lazy" />
+              <img src="img/products/garam-masala.jfif" alt="ABC Mills Garam Masala – rich warming spice blend" loading="lazy" itemprop="image" />
             </div>
             <div class="product-info">
-              <h4>Garam Masala</h4>
-              <p>A rich blend of warming spices to finish curries and stews.</p>
-              <a href="dummy-shop.html" class="btn btn-sm">Buy Now</a>
+              <h4 itemprop="name">Garam Masala</h4>
+              <p itemprop="description">A rich blend of warming spices to finish curries and stews.</p>
+              <a href="dummy-shop.html" class="btn btn-sm btn-buy" aria-label="Buy Garam Masala from ABC Mills">Buy Now</a>
             </div>
-          </div>
+          </article>
         </div>
         <div class="text-center" style="margin-top:2rem">
-          <a href="products.html" class="btn btn-primary">View All Products</a>
+          <a href="products.html" class="btn btn-primary" aria-label="View all ABC Mills masala products">View All Products</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== STATS BANNER ===== -->
-    <section class="stats-banner">
+    <section class="stats-banner" aria-label="ABC Mills achievements">
       <div class="container">
         <div class="stats-grid">
-          <div class="stat-item"><span class="stat-num">25+</span><span class="stat-label">Years of Mastery</span></div>
-          <div class="stat-item"><span class="stat-num">14</span><span class="stat-label">Signature Blends</span></div>
-          <div class="stat-item"><span class="stat-num">50K+</span><span class="stat-label">Happy Customers</span></div>
-          <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Natural Ingredients</span></div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="25" data-suffix="+">25+</span>
+            <span class="stat-label">Years of Mastery</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="14" data-suffix="">14</span>
+            <span class="stat-label">Signature Blends</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="50" data-suffix="K+">50K+</span>
+            <span class="stat-label">Happy Customers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="100" data-suffix="%">100%</span>
+            <span class="stat-label">Natural Ingredients</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== CTA SECTION ===== -->
-    <section class="section cta-section">
+    <section class="section cta-section" aria-labelledby="cta-heading">
       <div class="container">
         <div class="cta-box animate-target">
-          <h2>Ready to lift your cooking to the next level?</h2>
+          <h2 id="cta-heading">Ready to lift your cooking to the next level?</h2>
           <p>Discover handcrafted masalas made with real spices, trusted processes and a South Indian heritage of flavour.</p>
-          <a href="dummy-shop.html" class="btn btn-primary btn-lg">Shop Now →</a>
+          <a href="dummy-shop.html" class="btn btn-primary btn-lg" aria-label="Shop ABC Mills masala powders now">Shop Now →</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container footer-top">
       <div class="footer-grid">
         <div class="footer-brand">
@@ -217,7 +276,7 @@
           </div>
           <p>Authentic South Indian masalas made with care, quality and tradition.</p>
         </div>
-        <div class="footer-nav">
+        <nav class="footer-nav" aria-label="Footer explore links">
           <h4>Explore</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
@@ -225,28 +284,66 @@
             <li><a href="products.html">Products</a></li>
             <li><a href="gallery.html">Gallery</a></li>
           </ul>
-        </div>
-        <div class="footer-nav">
+        </nav>
+        <nav class="footer-nav" aria-label="Footer more links">
           <h4>More</h4>
           <ul>
             <li><a href="others.html">Others</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="dummy-shop.html">Shop</a></li>
           </ul>
-        </div>
-        <div class="footer-contact">
+        </nav>
+        <address class="footer-contact">
           <h4>Contact</h4>
-          <p>123 Spice Lane, Singapore 789456</p>
-          <p>hello@abcmills.sg</p>
-          <p>+65 9123 4567</p>
-        </div>
+          <p>123 Chennai, Tamil Nadu, India 629801</p>
+          <p><a href="mailto:hello@abcmills.in" style="color:inherit">hello@abcmills.in</a></p>
+          <p><a href="tel:+6591234567" style="color:inherit">+91 91234 56789</a></p>
+        </address>
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>© 2026 ABC Mills Pte Ltd. Designed for a responsive static experience.</p>
+      <p>© 2026 ABC Mills Pte Ltd. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    (function () {
+      const statNums = document.querySelectorAll('.stat-num[data-target]');
+      if (!statNums.length) return;
+
+      function animateCount(el) {
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1800; // ms
+        const startTime = performance.now();
+
+        function update(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.floor(eased * target);
+          el.textContent = current + suffix;
+          if (progress < 1) requestAnimationFrame(update);
+        }
+
+        requestAnimationFrame(update);
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCount(entry.target);
+              observer.unobserve(entry.target); // run once
+            }
+          });
+        },
+        { threshold: 0.4 }
+      );
+
+      statNums.forEach((el) => observer.observe(el));
+    })();
+  </script>
 </body>
 </html>

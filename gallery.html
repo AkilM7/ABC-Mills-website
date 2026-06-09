@@ -11,6 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 </head>
 <body data-page="gallery">
   <nav class="navbar" id="navbar" role="navigation" aria-label="Primary navigation">
@@ -56,30 +59,30 @@
           <h2>Product & Manufacturing <em>Gallery</em></h2>
         </div>
         <div class="gallery-grid">
-          <div class="gallery-item gallery-item--lg animate-target">
+          <a href="img/gallery/red-chilli.jfif" class="gallery-item gallery-item--lg animate-target" data-fancybox="gallery" data-caption="Premium Chillies – Carefully selected for heat and colour.">
             <img loading="lazy" src="img/gallery/red-chilli.jfif" alt="Premium Chillies" />
             <div class="gallery-label"><h4>Premium Chillies</h4><p>Carefully selected for heat and colour.</p></div>
-          </div>
-          <div class="gallery-item animate-target">
+          </a>
+          <a href="img/gallery/turmeric-roots.jfif" class="gallery-item animate-target" data-fancybox="gallery" data-caption="Turmeric Roots – Natural harvest for golden spice.">
             <img loading="lazy" src="img/gallery/turmeric-roots.jfif" alt="Turmeric Roots" />
             <div class="gallery-label"><h4>Turmeric Roots</h4><p>Natural harvest for golden spice.</p></div>
-          </div>
-          <div class="gallery-item animate-target">
+          </a>
+          <a href="img/gallery/coriander.jfif" class="gallery-item animate-target" data-fancybox="gallery" data-caption="Coriander Seeds – Freshly cleaned and dried before grinding.">
             <img loading="lazy" src="img/gallery/coriander.jfif" alt="Coriander Seeds" />
             <div class="gallery-label"><h4>Coriander Seeds</h4><p>Freshly cleaned and dried before grinding.</p></div>
-          </div>
-          <div class="gallery-item animate-target">
+          </a>
+          <a href="img/gallery/grinding.jfif" class="gallery-item animate-target" data-fancybox="gallery" data-caption="Spice Grinding – Stone grinding preserves aroma.">
             <img loading="lazy" src="img/gallery/grinding.jfif" alt="Spice Grinding" />
             <div class="gallery-label"><h4>Spice Grinding</h4><p>Stone grinding preserves aroma.</p></div>
-          </div>
-          <div class="gallery-item animate-target">
+          </a>
+          <a href="img/gallery/blending.jfif" class="gallery-item animate-target" data-fancybox="gallery" data-caption="Blending Studio – Measured and mixed with care.">
             <img loading="lazy" src="img/gallery/blending.jfif" alt="Blending Studio" />
             <div class="gallery-label"><h4>Blending Studio</h4><p>Measured and mixed with care.</p></div>
-          </div>
-          <div class="gallery-item animate-target">
+          </a>
+          <a href="img/gallery/packing.jfif" class="gallery-item animate-target" data-fancybox="gallery" data-caption="Packing Line – Fresh products sealed for freshness.">
             <img loading="lazy" src="img/gallery/packing.jfif" alt="Packing Line" />
             <div class="gallery-label"><h4>Packing Line</h4><p>Fresh products sealed for freshness.</p></div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -122,17 +125,36 @@
         </div>
         <div class="footer-contact">
           <h4>Contact</h4>
-          <p>123 Spice Lane, Singapore 789456</p>
-          <p>hello@abcmills.sg</p>
-          <p>+65 9123 4567</p>
+          <p>123 Chennai, Tamil Nadu 629801</p>
+          <p>hello@abcmills.in</p>
+          <p>+91 9123 456789</p>
         </div>
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>© 2026 ABC Mills Pte Ltd. Designed for a responsive static experience.</p>
+      <p>© 2026 ABC Mills Pte Ltd. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('[data-fancybox="gallery"]').fancybox({
+        loop: true,
+        animationEffect: "zoom",
+        transitionEffect: "fade",
+        buttons: [
+          "zoom",
+          "slideShow",
+          "thumbs",
+          "close"
+        ],
+        thumbs: {
+          autoStart: true,
+          axis: 'x'
+        }
+      });
+    });
+  </script>
 </body>
 </html>

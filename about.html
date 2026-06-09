@@ -11,6 +11,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .icon-svg, .vm-icon, .value-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon-svg svg, .vm-icon svg, .value-icon svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      fill: currentColor;
+    }
+    .vm-icon svg {
+      width: 3rem;
+      height: 3rem;
+    }
+    .value-icon svg {
+      width: 2rem;
+      height: 2rem;
+    }
+    .about-img-card span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+  </style>
 </head>
 <body data-page="about">
   <nav class="navbar" id="navbar" role="navigation" aria-label="Primary navigation">
@@ -61,19 +87,19 @@
           <div class="about-visual animate-target">
             <div class="about-img-grid">
               <div class="about-img-card" style="background:linear-gradient(160deg,#bf360c,#e64a19)">
-                <span>🌶</span>
+                <span class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M17.5 3C15.9 3 14.5 3.9 13.8 5.2C13.3 5.1 12.7 5 12 5C8.1 5 5 8.1 5 12C5 13.5 5.5 14.9 6.4 16C5.5 16.5 5 17.4 5 18.5C5 20.4 6.6 22 8.5 22C9.6 22 10.5 21.5 11 20.6C12.1 21.5 13.5 22 15 22C19.4 22 23 18.4 23 14C23 10.1 19.9 7 16 7C15.3 7 14.7 7.1 14.2 7.2C14.5 6.5 15 6 15.5 6C16.9 6 18 4.9 18 3.5C18 3.2 17.8 3 17.5 3Z"/></svg></span>
                 <p>Sourced from Guntur farms</p>
               </div>
               <div class="about-img-card" style="background:linear-gradient(160deg,#f9a825,#f57f17)">
-                <span>🟡</span>
+                <span class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><circle cx="12" cy="12" r="10"/><path d="M12 6C12 6 8 10 8 13C8 15.2 9.8 17 12 17C14.2 17 16 15.2 16 13C16 10 12 6 12 6Z" fill="#f9a825"/></svg></span>
                 <p>Turmeric grown in Erode</p>
               </div>
               <div class="about-img-card" style="background:linear-gradient(160deg,#388e3c,#2e7d32)">
-                <span>🌿</span>
+                <span class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5a6.22 6.22 0 0 0 1.75 3.75C7 13 11 9 17 8Z"/></svg></span>
                 <p>Coriander fresh from fields</p>
               </div>
               <div class="about-img-card" style="background:linear-gradient(160deg,#5d4037,#4e342e)">
-                <span>🫚</span>
+                <span class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 2C8 2 5 5 5 9C5 12 7 15 10 16V20C10 21.1 10.9 22 12 22C13.1 22 14 21.1 14 20V16C17 15 19 12 19 9C19 5 16 2 12 2ZM12 14C9.8 14 8 12.2 8 10C8 7.8 9.8 6 12 6C14.2 6 16 7.8 16 10C16 12.2 14.2 14 12 14Z"/></svg></span>
                 <p>Cumin roasted to perfection</p>
               </div>
             </div>
@@ -82,12 +108,12 @@
 
         <div class="vm-grid">
           <div class="vm-card vm-vision animate-target">
-            <div class="vm-icon">🔭</div>
+            <div class="vm-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M21 11H19.5C19.2 9.5 18.4 8.2 17.3 7.2L18.3 6.2C19.7 7.6 20.6 9.2 21 11ZM16.2 6.1L15.2 7.1C14.3 6.4 13.2 6 12 6C10.8 6 9.7 6.4 8.8 7.1L7.8 6.1C9 5.4 10.4 5 12 5C13.6 5 15 5.4 16.2 6.1ZM6.7 7.2C5.6 8.2 4.8 9.5 4.5 11H3C3.4 9.2 4.3 7.6 5.7 6.2L6.7 7.2ZM12 8C14.2 8 16 9.8 16 12V18H8V12C8 9.8 9.8 8 12 8ZM7 20H17V22H7V20Z"/></svg></div>
             <h3>Our Vision</h3>
             <p>To bring the authentic taste of South Indian masalas to homes and kitchens worldwide, one spice pack at a time.</p>
           </div>
           <div class="vm-card vm-mission animate-target">
-            <div class="vm-icon">🎯</div>
+            <div class="vm-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2ZM12 20C7.6 20 4 16.4 4 12S7.6 4 12 4 20 7.6 20 12 16.4 20 12 20ZM12 6C8.7 6 6 8.7 6 12S8.7 18 12 18 18 15.3 18 12 15.3 6 12 6ZM12 16C9.8 16 8 14.2 8 12S9.8 8 12 8 16 9.8 16 12 14.2 16 12 16ZM12 10C10.9 10 10 10.9 10 12S10.9 14 12 14 14 13.1 14 12 13.1 10 12 10Z"/></svg></div>
             <h3>Our Mission</h3>
             <p>To produce natural, additive-free masala powders using traditional techniques, premium ingredients, and modern food safety practices.</p>
           </div>
@@ -99,22 +125,22 @@
         </div>
         <div class="values-grid">
           <div class="value-item animate-target">
-            <span class="value-icon">🌱</span>
+            <span class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 22C12 22 4 16 4 10C4 5 8 2 12 2C16 2 20 5 20 10C20 16 12 22 12 22ZM12 4C9.2 4 7 6.2 7 9C7 11.5 8.5 13.5 10.5 15C11 14 11.5 12.5 12 11C12.5 12.5 13 14 13.5 15C15.5 13.5 17 11.5 17 9C17 6.2 14.8 4 12 4Z"/></svg></span>
             <h4>Purity</h4>
             <p>Only whole spices, dried and ground with no fillers or preservatives.</p>
           </div>
           <div class="value-item animate-target">
-            <span class="value-icon">🤝</span>
+            <span class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M21 7C21 7 20.5 6 19 6C17.5 6 17 7 17 7L14 10L10 6L7 9L11 13L9 15L5 11L2 14L6 18C6 18 7.5 19.5 9.5 19.5C11.5 19.5 13 18 13 18L21 10C21 10 22 9 22 8C22 7 21 7 21 7Z"/></svg></span>
             <h4>Trust</h4>
             <p>Clear sourcing, honest quality and a process you can rely on.</p>
           </div>
           <div class="value-item animate-target">
-            <span class="value-icon">♻️</span>
+            <span class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 2L14.5 8.5L21 9L16.5 14L18 20.5L12 17.5L6 20.5L7.5 14L3 9L9.5 8.5L12 2Z" opacity="0.3"/><path d="M7 7L3 12L7 17V14H11V10H7V7ZM17 7V10H13V14H17V17L21 12L17 7Z"/></svg></span>
             <h4>Sustainability</h4>
             <p>Eco-friendly packaging and ethical support for local farming communities.</p>
           </div>
           <div class="value-item animate-target">
-            <span class="value-icon">🏆</span>
+            <span class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M19 5H17V3H7V5H5C3.9 5 3 5.9 3 7V8C3 10.55 4.92 12.74 7.39 12.96C8.27 14.85 10.11 16.18 12.21 16.45V19H7V21H17V19H11.79V16.45C13.89 16.18 15.73 14.85 16.61 12.96C19.08 12.74 21 10.55 21 8V7C21 5.9 20.1 5 19 5ZM5 8V7H7V10.82C5.84 10.4 5 9.3 5 8ZM19 8C19 9.3 18.16 10.4 17 10.82V7H19V8Z"/></svg></span>
             <h4>Excellence</h4>
             <p>Consistent product quality validated by ISO and hygiene standards.</p>
           </div>
@@ -160,14 +186,14 @@
         </div>
         <div class="footer-contact">
           <h4>Contact</h4>
-          <p>123 Spice Lane, Singapore 789456</p>
-          <p>hello@abcmills.sg</p>
-          <p>+65 9123 4567</p>
+          <p>123 Chennai, Tamil Nadu, India 629801</p>
+          <p>hello@abcmills.in</p>
+          <p>+91 91234 56789</p>
         </div>
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>© 2026 ABC Mills Pte Ltd. Designed for a responsive static experience.</p>
+      <p>© 2026 ABC Mills Pte Ltd. All rights reserved.</p>
     </div>
   </footer>
 
