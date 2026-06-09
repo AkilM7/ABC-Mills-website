@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ABC Mills others page with FAQs, testimonials and certifications." />
+  <meta name="keywords" content="ABC Mills faqs, testimonials, certifications, masala quality" />
+  <meta name="author" content="ABC Mills Pte Ltd" />
+  <title>ABC Mills Pte Ltd – Others</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="others">
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Primary navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="ABC Mills home page">
+        <span class="logo-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <path fill="#c62828" d="M10 34c2-10 18-26 34-10 8 8-6 26-16 30-12 5-18-4-18-20z"/>
+            <path fill="#2e7d32" d="M44 6c4 2 6 6 4 10-4 0-10-2-12-6 2-4 6-6 8-4z"/>
+          </svg>
+        </span>
+        <div>
+          <span class="logo-name">ABC Mills</span>
+          <span class="logo-tagline">Pte Ltd</span>
+        </div>
+      </a>
+      <button class="hamburger" id="hamburger" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
+        <li><a href="about.html" class="nav-link" data-page="about">About Us</a></li>
+        <li><a href="products.html" class="nav-link" data-page="products">Products</a></li>
+        <li><a href="gallery.html" class="nav-link" data-page="gallery">Gallery</a></li>
+        <li><a href="others.html" class="nav-link" data-page="others">Others</a></li>
+        <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-hero page-hero--others">
+      <div class="container">
+        <h1>Others</h1>
+        <p>Helpful answers, customer stories and quality certifications to support our commitment.</p>
+      </div>
+    </section>
+
+    <!-- ===== FAQs SECTION ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Frequently Asked</span>
+          <h2>FAQs</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item animate-target">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq1-answer" id="faq1-btn">
+              How long does your masala stay fresh?
+              <span class="faq-arrow" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-answer" id="faq1-answer" role="region" aria-labelledby="faq1-btn" aria-hidden="true">
+              <p>Our sealed packs stay fresh for up to 12 months when stored in a cool, dry place away from direct sunlight.</p>
+            </div>
+          </div>
+          <div class="faq-item animate-target">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq2-answer" id="faq2-btn">
+              Are your products suitable for vegetarian diets?
+              <span class="faq-arrow" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-answer" id="faq2-answer" role="region" aria-labelledby="faq2-btn" aria-hidden="true">
+              <p>Yes, all our masala powders are vegetarian. We use pure spices and no animal-derived additives.</p>
+            </div>
+          </div>
+          <div class="faq-item animate-target">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq3-answer" id="faq3-btn">
+              Do you offer custom spice blends?
+              <span class="faq-arrow" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-answer" id="faq3-answer" role="region" aria-labelledby="faq3-btn" aria-hidden="true">
+              <p>We can discuss custom blends for larger orders. Please contact us via the contact page for inquiries.</p>
+            </div>
+          </div>
+          <div class="faq-item animate-target">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq4-answer" id="faq4-btn">
+              Where are your spices sourced from?
+              <span class="faq-arrow" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-answer" id="faq4-answer" role="region" aria-labelledby="faq4-btn" aria-hidden="true">
+              <p>We source our spices directly from trusted farms in South India, including Guntur for chillies and Erode for turmeric.</p>
+            </div>
+          </div>
+          <div class="faq-item animate-target">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq5-answer" id="faq5-btn">
+              Do you ship internationally?
+              <span class="faq-arrow" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-answer" id="faq5-answer" role="region" aria-labelledby="faq5-btn" aria-hidden="true">
+              <p>Currently we ship within Singapore. International shipping options are coming soon. Contact us for bulk export inquiries.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <section class="section bestsellers-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Customer love</span>
+          <h2>Testimonials</h2>
+        </div>
+        <div class="testimonials-grid">
+          <figure class="testimonial-card animate-target">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <blockquote><p>ABC Mills masala has become part of our daily cooking. The flavours are so authentic and fresh.</p></blockquote>
+            <figcaption class="testimonial-author">
+              <span class="author-avatar" aria-hidden="true">AM</span>
+              <div><strong>Anita Menon</strong><small>Home chef, Singapore</small></div>
+            </figcaption>
+          </figure>
+          <figure class="testimonial-card animate-target">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <blockquote><p>The quality and aroma are outstanding. The packaging also keeps everything fresh for weeks.</p></blockquote>
+            <figcaption class="testimonial-author">
+              <span class="author-avatar" aria-hidden="true">RS</span>
+              <div><strong>Ravi Selvan</strong><small>Restaurant owner</small></div>
+            </figcaption>
+          </figure>
+          <figure class="testimonial-card animate-target">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <blockquote><p>Quick response, reliable delivery and a deep spice flavour that makes every meal better.</p></blockquote>
+            <figcaption class="testimonial-author">
+              <span class="author-avatar" aria-hidden="true">PL</span>
+              <div><strong>Priya Latha</strong><small>Food blogger</small></div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS SECTION ===== -->
+    <section class="section highlights-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Quality</span>
+          <h2>Certifications</h2>
+        </div>
+        <div class="certs-grid">
+          <figure class="cert-card animate-target">
+            <span class="cert-icon">🏅</span>
+            <figcaption><h4>ISO Certified</h4><p>Strict food safety and hygiene controls at every production stage.</p></figcaption>
+          </figure>
+          <figure class="cert-card animate-target">
+            <span class="cert-icon">🌿</span>
+            <figcaption><h4>Natural Ingredients</h4><p>Only whole spices and natural blends — no artificial colours or flavours.</p></figcaption>
+          </figure>
+          <figure class="cert-card animate-target">
+            <span class="cert-icon">🏭</span>
+            <figcaption><h4>SG Manufacturing</h4><p>Produced under Singapore manufacturing standards for consistent quality.</p></figcaption>
+          </figure>
+          <figure class="cert-card animate-target">
+            <span class="cert-icon">♻️</span>
+            <figcaption><h4>Eco-Friendly</h4><p>Sustainable packaging and ethical sourcing practices.</p></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-hidden="true">
+                <path fill="#c62828" d="M10 34c2-10 18-26 34-10 8 8-6 26-16 30-12 5-18-4-18-20z"/>
+                <path fill="#2e7d32" d="M44 6c4 2 6 6 4 10-4 0-10-2-12-6 2-4 6-6 8-4z"/>
+              </svg>
+            </span>
+            <div>
+              <span class="logo-name">ABC Mills</span>
+              <span class="logo-tagline">Pte Ltd</span>
+            </div>
+          </div>
+          <p>Authentic South Indian masalas made with care, quality and tradition.</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <h4>More</h4>
+          <ul>
+            <li><a href="others.html">Others</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="dummy-shop.html">Shop</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>123 Spice Lane, Singapore 789456</p>
+          <p>hello@abcmills.sg</p>
+          <p>+65 9123 4567</p>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 ABC Mills Pte Ltd. Designed for a responsive static experience.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

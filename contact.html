@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact ABC Mills Pte Ltd in Singapore for inquiries, orders or custom spice blends." />
+  <meta name="keywords" content="ABC Mills contact, Singapore masala supplier, spice inquiry, contact form" />
+  <meta name="author" content="ABC Mills Pte Ltd" />
+  <title>ABC Mills Pte Ltd – Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="contact">
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Primary navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="ABC Mills home page">
+        <span class="logo-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <path fill="#c62828" d="M10 34c2-10 18-26 34-10 8 8-6 26-16 30-12 5-18-4-18-20z"/>
+            <path fill="#2e7d32" d="M44 6c4 2 6 6 4 10-4 0-10-2-12-6 2-4 6-6 8-4z"/>
+          </svg>
+        </span>
+        <div>
+          <span class="logo-name">ABC Mills</span>
+          <span class="logo-tagline">Pte Ltd</span>
+        </div>
+      </a>
+      <button class="hamburger" id="hamburger" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
+        <li><a href="about.html" class="nav-link" data-page="about">About Us</a></li>
+        <li><a href="products.html" class="nav-link" data-page="products">Products</a></li>
+        <li><a href="gallery.html" class="nav-link" data-page="gallery">Gallery</a></li>
+        <li><a href="others.html" class="nav-link" data-page="others">Others</a></li>
+        <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-hero page-hero--contact">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>Send a message or reach out directly for orders, enquiries and custom spice support.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <div class="contact-form-wrap animate-target">
+          <h2>Get in Touch</h2>
+          <form id="contactForm" onsubmit="return submitForm();" aria-label="Contact form" novalidate>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required aria-required="true" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required aria-required="true" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="+65 9123 4567" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="How can we help you?" required aria-required="true"></textarea>
+            </div>
+            <button id="contactSubmit" type="submit" class="btn btn-primary btn-full">Send Message</button>
+            <div id="formErrors" class="form-errors" role="alert" aria-live="assertive" style="display:none;"></div>
+            <div id="formSuccess" class="form-success" role="status" aria-live="polite" style="display:none;">Thank you! Your message has been received. We will contact you shortly.</div>
+          </form>
+        </div>
+        <div class="contact-info-wrap animate-target">
+          <h2>Contact Information</h2>
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <span class="ci-icon">📍</span>
+              <div><h4>Address</h4><p>123 Spice Lane, Singapore 789456</p></div>
+            </div>
+            <div class="contact-info-item">
+              <span class="ci-icon">📞</span>
+              <div><h4>Phone</h4><p>+65 9123 4567</p></div>
+            </div>
+            <div class="contact-info-item">
+              <span class="ci-icon">✉️</span>
+              <div><h4>Email</h4><p>hello@abcmills.sg</p></div>
+            </div>
+          </div>
+          <div class="social-section">
+            <h4>Follow us</h4>
+            <div class="social-links">
+              <a href="#" class="social-btn">Instagram</a>
+              <a href="#" class="social-btn">Facebook</a>
+              <a href="#" class="social-btn">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-hidden="true">
+                <path fill="#c62828" d="M10 34c2-10 18-26 34-10 8 8-6 26-16 30-12 5-18-4-18-20z"/>
+                <path fill="#2e7d32" d="M44 6c4 2 6 6 4 10-4 0-10-2-12-6 2-4 6-6 8-4z"/>
+              </svg>
+            </span>
+            <div>
+              <span class="logo-name">ABC Mills</span>
+              <span class="logo-tagline">Pte Ltd</span>
+            </div>
+          </div>
+          <p>Authentic South Indian masalas made with care, quality and tradition.</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <h4>More</h4>
+          <ul>
+            <li><a href="others.html">Others</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="dummy-shop.html">Shop</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>123 Spice Lane, Singapore 789456</p>
+          <p>hello@abcmills.sg</p>
+          <p>+65 9123 4567</p>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 ABC Mills Pte Ltd. Designed for a responsive static experience.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
